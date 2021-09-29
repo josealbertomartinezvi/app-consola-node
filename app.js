@@ -6,11 +6,17 @@ console.clear();
 
 const main = async () => {
 
-    console.log('Hola');
+    let opt = '';
 
-    mostrarMenu();
+    do {
 
-    pausa();
+        opt = await mostrarMenu();
+        console.log( { opt } );
+
+        if( opt !== '0' ) await pausa();
+
+    }while( opt !== '0' );
+
 }
 
 
