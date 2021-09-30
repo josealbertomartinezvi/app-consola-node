@@ -1,7 +1,8 @@
 const { 
     inquirerMenu, 
     inquirerPausa,
-    leerInput 
+    leerInput, 
+    listadoTareasBorrar
 } = require('./helpers/inquirer');
 const { 
     guardarDB, 
@@ -56,6 +57,19 @@ const main = async () => {
                 // console.log( tareas.listadoTareas );
                 tareas.listadoPendientesCompletadas( false );
             
+                break;
+
+            case '5': 
+
+            
+                break;
+
+            case '6': // Eliminar Tarea
+
+                const id = await listadoTareasBorrar( tareas.listadoTareas )
+            
+                console.log( { id } )
+
                 break;
         }
 
