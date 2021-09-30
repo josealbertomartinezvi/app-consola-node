@@ -10,6 +10,19 @@ class Tareas {
 
     }
 
+    get listadoTareas() {
+
+        let listado = [];
+
+        Object.keys( this._listado ).map( key => {
+            // console.log( key )
+            listado = [ ...listado, this._listado[key] ]
+        } );
+
+        return listado;
+
+    }
+
     crearTarea( descripcion = '' ) {
 
         const tarea = new Tarea( descripcion );

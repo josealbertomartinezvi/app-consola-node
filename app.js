@@ -3,7 +3,6 @@ const {
     inquirerPausa,
     leerInput 
 } = require('./helpers/inquirer');
-const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
 require('colors');
@@ -29,7 +28,7 @@ const main = async () => {
 
             case '2': // Listar Tareas
 
-                console.log( tareas._listado );
+                console.log( tareas.listadoTareas );
             
                 break;
         }
