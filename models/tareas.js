@@ -16,7 +16,7 @@ class Tareas {
 
         Object.keys( this._listado ).map( key => {
 
-            listado = [ ...listado, this._listado[key] ]
+            listado.push( this._listado[key] );
 
         } );
 
@@ -36,6 +36,24 @@ class Tareas {
 
         const tarea = new Tarea( descripcion );
         this._listado[ tarea.id ] = tarea;
+
+    }
+
+    listadoCompleto() {
+
+        console.log(`\n`)
+        this.listadoTareas.map( (tarea, index) => {
+
+            const idx = `${ index + 1 }`.green;
+            const { description, completed_at } = tarea;
+            const estado = completed_at 
+                                ? 'Completada'.green 
+                                : 'Pendiente'.red;
+        
+            console.log(`${ idx }. ${ description } :: ${ estado }`);
+
+
+        } )
 
     }
 

@@ -18,6 +18,13 @@ const main = async () => {
     let opt = '';
     const tareas = new Tareas();
 
+    const tareasDB = leerDB();
+
+    // obtiene las tareas desde el archivo y los carga al array
+    if( tareasDB ){
+        tareas.cargarTareas( tareasDB )
+    }
+
     do {
 
         opt = await inquirerMenu();
@@ -32,12 +39,8 @@ const main = async () => {
 
             case '2': // Listar Tareas
 
-                const tareasDB = leerDB();
-
-                if( tareasDB ){
-                    tareas.cargarTareas( tareasDB )
-                    console.log( tareas.listadoTareas );
-                }
+                // console.log( tareas.listadoTareas );
+                tareas.listadoCompleto();
             
                 break;
         }
