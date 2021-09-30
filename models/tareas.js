@@ -57,6 +57,38 @@ class Tareas {
 
     }
 
+    listadoPendientesCompletadas( completadas = true ){
+
+        console.log(`\n`)
+        let contador = 0;
+        this.listadoTareas.map( tarea => {
+
+            const { description, completed_at } = tarea;
+        
+            if( completadas ){
+
+                // muestra las completadas
+                if( completed_at ){
+                    
+                    contador += 1;
+                    console.log(`${ contador.toString().green }. ${ description } :: ${ completed_at  }`);
+                }
+
+            }else{
+
+                // muestra las pendientes
+                if( !completed_at ){
+                    
+                    contador += 1;
+                    console.log(`${ contador.toString().green }. ${ description } :: ${ completed_at  }`);
+                }
+
+            }
+
+        } )
+
+    }
+
 }
 
 module.exports = Tareas;
