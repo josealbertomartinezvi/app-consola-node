@@ -15,11 +15,20 @@ class Tareas {
         let listado = [];
 
         Object.keys( this._listado ).map( key => {
-            // console.log( key )
+
             listado = [ ...listado, this._listado[key] ]
+
         } );
 
         return listado;
+
+    }
+
+    cargarTareas( listado = [] ) {
+
+        listado.map( tarea => {
+            this._listado[ tarea.id ] = tarea;
+        } )
 
     }
 
