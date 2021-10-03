@@ -71,7 +71,7 @@ class Tareas {
                 if( completed_at ){
                     
                     contador += 1;
-                    console.log(`${ contador.toString().green }. ${ description } :: ${ completed_at  }`);
+                    console.log(`${ contador.toString().green }. ${ description } :: ${ completed_at.green  }`);
                 }
 
             }else{
@@ -96,6 +96,32 @@ class Tareas {
             delete this._listado[id];
 
         }
+
+    }
+
+    toggleCompletadas ( ids = [] ) {
+
+        ids.forEach( id => {
+
+            const tarea = this._listado[ id ];
+
+            if( !tarea.completed_at ) {
+
+                tarea.completed_at = new Date().toISOString();
+
+            }
+
+        } )
+
+        this.listadoTareas.forEach( tarea => {
+
+            if( !ids.includes( tarea.id ) ) {
+
+                this._listado[ tarea.id ].completed_at = null;
+
+            }
+
+        } )
 
     }
 

@@ -3,7 +3,8 @@ const {
     inquirerPausa,
     leerInput, 
     listadoTareasBorrar,
-    confirmar
+    confirmar,
+    listadoCheckList
 } = require('./helpers/inquirer');
 const { 
     guardarDB, 
@@ -60,8 +61,10 @@ const main = async () => {
             
                 break;
 
-            case '5': 
+            case '5': // Completar tareas
 
+                const ids = await listadoCheckList( tareas.listadoTareas );
+                tareas.toggleCompletadas( ids );
             
                 break;
 
