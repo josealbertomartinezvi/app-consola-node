@@ -2,7 +2,8 @@ const {
     inquirerMenu, 
     inquirerPausa,
     leerInput, 
-    listadoTareasBorrar
+    listadoTareasBorrar,
+    confirmar
 } = require('./helpers/inquirer');
 const { 
     guardarDB, 
@@ -67,8 +68,17 @@ const main = async () => {
             case '6': // Eliminar Tarea
 
                 const id = await listadoTareasBorrar( tareas.listadoTareas )
-            
-                console.log( { id } )
+
+                if( id !== '0' ) {
+
+                    const confirm = await confirmar('¿ Esta Seguro ?');
+
+                    if( confirm ){
+                        tareas.eliminarTarea( id );
+                        console.log('Tarea Eliminada Correctamente.');
+                    }
+
+                }
 
                 break;
         }
